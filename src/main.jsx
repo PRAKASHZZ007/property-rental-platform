@@ -1,10 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // Updated import for React 18
+import { createRoot } from 'react-dom/client';
+import { HashRouter as Router } from 'react-router-dom'; // Or BrowserRouter
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+
 root.render(
-  <React.StrictMode>
+  <Router>
     <App />
-  </React.StrictMode>
+  </Router>
 );

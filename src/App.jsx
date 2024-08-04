@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
@@ -40,33 +40,31 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home onBook={handleAddToCart} />}
-        />
-        <Route
-          path="/cart"
-          element={
-            <CartPage
-              cartItems={cartItems}
-              onUpdateCart={handleUpdateCart}
-              onRemoveFromCart={handleRemoveFromCart}
-            />
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <CheckoutPage
-              cartItems={cartItems}
-              totalAmount={calculateTotal()}
-            />
-          }
-        />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route
+        path="/"
+        element={<Home onBook={handleAddToCart} />}
+      />
+      <Route
+        path="/cart"
+        element={
+          <CartPage
+            cartItems={cartItems}
+            onUpdateCart={handleUpdateCart}
+            onRemoveFromCart={handleRemoveFromCart}
+          />
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <CheckoutPage
+            cartItems={cartItems}
+            totalAmount={calculateTotal()}
+          />
+        }
+      />
+    </Routes>
   );
 };
 
